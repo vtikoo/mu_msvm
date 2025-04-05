@@ -37,6 +37,7 @@
 
 [Pcd]
   gMsvmPkgTokenSpaceGuid.PcdBiosGuidPtr   ## CONSUMES
+  gMsvmPkgTokenSpaceGuid.PcdAziHsmGuidPtr   ## CONSUMES
 
 [Depex]
   gEfiTcg2ProtocolGuid

@@ -48,5 +48,25 @@ Routine Description:
 
   DEBUG((DEBUG_INFO, __FUNCTION__"() - Logged %a (size=0x%x) status 0x%x\n", EventLog, EventSize, Status));
 
+  //
+  // If PcdAziHsmGuidPtr is set, log to PCR 6
+  // This is used in Trusted Launch VMs to bind VM to an Azure Integrated HSM VF instance.
+  //
+  EFI_GUID *AziHsmGuidPtr = (EFI_GUID *)PcdGet64(PcdAziHsmGuidPtr);
+  if (AziHsmGuidPtr != NULL) {
+    EventSize = (UINT32)AsciiSPrint(EventLog, sizeof(EventLog), "AZIHSM GUID: %g", AziHsmGuidPtr);
+
+    Status = TpmMeasureAndLogData (
+              6,
+              EV_COMPACT_HASH,
+              EventLog,
+              EventSize,
+              EventLog,
+              EventSize
+              );
+
+    DEBUG((DEBUG_INFO, __FUNCTION__"() - Logged %a (size=0x%x) status 0x%x\n", EventLog, EventSize, Status));
+  }
+
   return EFI_SUCCESS;
 }

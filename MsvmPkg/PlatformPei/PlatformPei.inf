@@ -189,6 +189,7 @@
     gMsvmPkgTokenSpaceGuid.PcdHostEmulatorsWhenHardwareIsolated
     gMsvmPkgTokenSpaceGuid.PcdTpmLocalityRegsEnabled
     gMsvmPkgTokenSpaceGuid.PcdMtrrsInitializedAtLoad
+    gMsvmPkgTokenSpaceGuid.PcdAziHsmGuidPtr
 
 [Pcd.AArch64]
     gMsvmPkgTokenSpaceGuid.PcdSystemMemoryBaseAddress

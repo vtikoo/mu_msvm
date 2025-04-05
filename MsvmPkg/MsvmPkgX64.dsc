@@ -720,6 +720,11 @@
   gMsvmPkgTokenSpaceGuid.PcdAsptPtr|0x0
   gMsvmPkgTokenSpaceGuid.PcdAsptSize|0x0
 
+
+  # UEFI_CONFIG_AZIHSM_GUID
+  # Points to the actual GUID, not the containing config structure
+  gMsvmPkgTokenSpaceGuid.PcdAziHsmGuidPtr|0x0
+
 ################################################################################
 #
 # Components Section - list of all Modules include for this Platform.

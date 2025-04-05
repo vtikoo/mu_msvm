@@ -695,6 +695,10 @@
   # UEFI_CONFIG_NVDIMM_COUNT
   gMsvmPkgTokenSpaceGuid.PcdNvdimmCount|0x0
 
+  # UEFI_CONFIG_AZIHSM_GUID
+  # Points to the actual GUID, not the containing config structure
+  gMsvmPkgTokenSpaceGuid.PcdAziHsmGuidPtr|0x0
+
   # Isolation configuration
   gMsvmPkgTokenSpaceGuid.PcdIsolationArchitecture|0x0
   gMsvmPkgTokenSpaceGuid.PcdIsolationParavisorPresent|FALSE

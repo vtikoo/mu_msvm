@@ -553,6 +553,7 @@ enum UefiStructureType
     UefiConfigSsdt                           = 0x25,
     UefiConfigHmat                           = 0x26,
     UefiConfigIort                           = 0x27,
+    UefiConfigAziHsmGuid                     = 0x28,
 };
 
 //
@@ -871,6 +872,13 @@ typedef struct _UEFI_CONFIG_IORT
     UEFI_CONFIG_HEADER Header;
     UINT8 Iort[];
 } UEFI_CONFIG_IORT;
+
+typedef struct _UEFI_CONFIG_AZIHSM_GUID
+{
+    UEFI_CONFIG_HEADER Header;
+    UINT8 AziHsmGuid[];
+} UEFI_CONFIG_AZIHSM_GUID;
+
 
 //
 // UEFI configuration information for direct parsing of IGVM parameters.

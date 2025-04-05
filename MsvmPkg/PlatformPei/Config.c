@@ -778,6 +778,10 @@ DebugDumpUefiConfigStruct(
             DEBUG((DEBUG_VERBOSE, "\tIORT table found.\n"));
             break;
 
+        case UefiConfigAziHsmGuid:
+            UEFI_CONFIG_AZIHSM_GUID *aziHsmGuid = (UEFI_CONFIG_AZIHSM_GUID*) Header;
+            DEBUG((DEBUG_VERBOSE, "\tAziHsmGuid: %g\n", (EFI_GUID*) aziHsmGuid->AziHsmGuid));
+            break;
         default:
             DEBUG((DEBUG_VERBOSE, "\t!!! Unrecognized config structure type !!!\n"));
             break;
@@ -1061,6 +1065,7 @@ Return Value:
         0, //UefiConfigSsdt
         0, //UefiConfigHmat
         0, //UefiConfigIort
+        0, //UefiConfigAziHsmGuid
     };
 
     //
@@ -1625,6 +1630,13 @@ Return Value:
                 PEI_FAIL_FAST_IF_FAILED(PcdSet64S(PcdIortPtr, (UINT64)iortStructure->Iort));
                 PEI_FAIL_FAST_IF_FAILED(PcdSet32S(PcdIortSize, iortHdr->Length));
                 break;
+
+            case UefiConfigAziHsmGuid:
+                UEFI_CONFIG_AZIHSM_GUID *aziHsmGuid = (UEFI_CONFIG_AZIHSM_GUID*) header;
+                PEI_FAIL_FAST_IF_FAILED(PcdSet64S(PcdAziHsmGuidPtr, (UINT64) aziHsmGuid->AziHsmGuid));
+                break;
+
+
         }
 
         calculatedConfigSize += header->Length;
